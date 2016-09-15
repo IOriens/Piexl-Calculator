@@ -1,0 +1,37 @@
+.input-card {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    // padding: 20px;
+    overflow: hidden;
+    // border: 1px solid black;
+    margin: 20px;
+}
+
+
+$cardHeight: 100px;
+.card-name {
+    float: left;
+    width: 65px;
+    font-size: 29px;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.card-content {
+    line-height: 50px;
+    padding-left: 90px;
+    font-size: 20px;    
+    input {
+        width: 100px;
+        border-radius: 5px;
+        outline: none;
+        // height: 20px;
+        padding: 5px;
+        border: 1px solid #123;
+        margin-left: 3px;
+        // margin-top: -10px;
+    }
+    span {
+        margin-right: 16px;
+        margin-left: 3px;
+    }
+}

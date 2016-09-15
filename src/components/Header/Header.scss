@@ -1,0 +1,11 @@
+$headerHeight: 110px;
+$headerFontSize: 44px;
+
+header {
+    text-align: center;
+    background-color: #9c27b0;
+    color: #fff;    
+    font-family: 'Pacifico', cursive;
+    font-size: $headerFontSize;
+    padding: 20px 0;        
+}

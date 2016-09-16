@@ -5,6 +5,13 @@ import './InputCard.scss'
 class InpuCard extends Component {
     constructor(...args) {
         super(...args) 
+   
+    }
+
+    handleChage (e) {                     
+        if(!isNaN(parseFloat(e.target.value)) ) {
+            this.props.valueChange(this.props.cardType,  e.target.className, parseFloat(e.target.value))
+        }
     }
 
     render() {
@@ -15,9 +22,23 @@ class InpuCard extends Component {
                 </div>
                 <div className="card-content">
                     <label htmlFor={this.props.cardType + 'Height'}>Height: </label>
-                    <input type="text"/><span>px</span>{'\t \t'}
+                    <input 
+                        id={this.props.cardType + 'Height'} 
+                        onChange={this.handleChage.bind(this)}
+                        className="height"
+                        type="text"
+                        defaultValue={this.props.height}
+                        />
+                    <span>px</span>{'\t \t'}
                     <label htmlFor={this.props.cardType + 'Width'}>Width: </label>
-                    <input type="text"/><span>px</span>
+                    <input 
+                        id={this.props.cardType + 'Width'} 
+                        onChange={this.handleChage.bind(this)}
+                        type="text"
+                        className="width"
+                        defaultValue={this.props.width}
+                        />
+                    <span>px</span>
                 </div>
             </div>
         )

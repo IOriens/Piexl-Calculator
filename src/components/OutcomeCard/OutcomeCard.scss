@@ -1,0 +1,19 @@
+.outcome-card {
+    margin: 20px;
+       font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.outcome-card-name {
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.outcome-content {
+    font-size: 25px;
+    text-align: center;
+    span, code {
+        display: inline-block;
+        width: 80px;
+    }
+}

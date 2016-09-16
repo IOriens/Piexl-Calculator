@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
- 
+
+import './OutcomeCard.scss'
 class OutcomeCard extends Component {
     constructor(...args) {
         super(...args)
@@ -12,8 +13,8 @@ class OutcomeCard extends Component {
                     {this.props.cardName}
                 </div>
                 <div className="outcome-content">
-                    <span>Height: </span><span>{this.props.heighInfo}</span><span>px</span>
-                    <span>Width: </span><span>{this.props.widthInfo}</span><span>px</span>
+                    <span>Height: </span><code>{this.props.heighInfo}</code>{' '}
+                    <span>Width: </span><code>{this.props.widthInfo}</code>
                 </div>
             </div>
         )

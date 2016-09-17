@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import Header from '../Header/Header'
 import CardBox from '../CardBox/CardBox'
 import InputCardContainer from '../../container/InputCardContainer'
-import OutcomeCard from '../OutcomeCard/OutcomeCard'
+import OutcomeCardContainer from '../../container/OutcomeCardContainer'
 
 import './App.scss'
 
@@ -16,10 +16,14 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                <InputCardContainer />
                 <CardBox >
-                    <OutcomeCard cardName='PIXEL' heighInfo='12px' widthInfo='29px'/>
-                    <OutcomeCard cardName='RATIO' heighInfo='12%' widthInfo='29%'/>
+                    <InputCardContainer cardType='psd'/>
+                    <InputCardContainer cardType='client'/>
+                    <InputCardContainer cardType='item'/>
+                </CardBox>
+                <CardBox >
+                    <OutcomeCardContainer cardType='pixel'/>
+                    <OutcomeCardContainer cardType='ratio'/>
                 </CardBox>
             </div>
         )

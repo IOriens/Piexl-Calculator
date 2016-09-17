@@ -1,10 +1,10 @@
 const initialState = {
     psd: {
-        height: 0,
+        height: 12,
         width: 0
     },
     client: {
-        height: 0,
+        height: 12,
         width: 0
     },
     item: {
@@ -42,19 +42,20 @@ const pixelReducer = (state = initialState, action) => {
         obj.pixel.height = state.item.height * state.client.height / state.psd.height
         obj.pixel.width = state.item.width * state.client.width / state.psd.width
         obj.ratio.height = state.item.height / state.psd.height
-        obj.ratio.width = state.item.width  / state.psd.width  
+        obj.ratio.width = state.item.width / state.psd.width
 
         return obj
-    }    
+    }
     switch (action.type) {
         case 'INPUT_CHANGE':
-            let obj = {}
-            obj[action.changedAttr] = {}
-            obj[action.changedAttr][action.heightOrWidth] = action.value
-            let newState = Object.assign({}, state, obj)
-            newState['outcome'] = calcOutcome(newState)       
-            console.log(state, newState)     
+            let newState = Object.assign({}, state)
+            newState[action.changedAttr][action.heightOrWidth] = action.value
+            newState = Object.assign({}, state, newState)
+            newState['outcome'] = calcOutcome(newState)
+            // console.log(state, newState)     
             return Object.assign({}, state, newState)
+        default:
+            return state
     }
 }
 

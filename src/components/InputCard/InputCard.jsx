@@ -4,8 +4,7 @@ import './InputCard.scss'
 
 class InpuCard extends Component {
     constructor(...args) {
-        super(...args) 
-   
+        super(...args)    
     }
 
     handleChage (e) {                     
@@ -26,8 +25,8 @@ class InpuCard extends Component {
                         id={this.props.cardType + 'Height'} 
                         onChange={this.handleChage.bind(this)}
                         className="height"
-                        type="text"
-                        defaultValue={this.props.height}
+                        type="text"                 
+                        value={this.props.height}
                         />
                     <span>px</span>{'\t \t'}
                     <label htmlFor={this.props.cardType + 'Width'}>Width: </label>
@@ -36,7 +35,7 @@ class InpuCard extends Component {
                         onChange={this.handleChage.bind(this)}
                         type="text"
                         className="width"
-                        defaultValue={this.props.width}
+                        value={this.props.width}
                         />
                     <span>px</span>
                 </div>

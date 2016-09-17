@@ -9,7 +9,7 @@
   "scripts": {
     "start": "npm run build:dev",
     "dev": "npm run build:dev",
-    "build:dev": "webpack-dev-server --hot --inline --progress --colors",
+    "build:dev": "webpack-dashboard -- webpack-dev-server --hot --inline --progress --colors",
     "build": "npm run clean && NODE_ENV=production webpack-dashboard -- webpack -p --progress --colors",
     "clean": "rimraf ./dist"
   },

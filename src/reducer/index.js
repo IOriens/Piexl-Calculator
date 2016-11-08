@@ -39,10 +39,10 @@ const pixelReducer = (state = initialState, action) => {
             }
         }
 
-        obj.pixel.height = state.item.height * state.client.height / state.psd.height
-        obj.pixel.width = state.item.width * state.client.width / state.psd.width
-        obj.ratio.height = state.item.height / state.psd.height
-        obj.ratio.width = state.item.width / state.psd.width
+        obj.pixel.height = (state.item.height * state.client.height / state.psd.height).toFixed(2)
+        obj.pixel.width = (state.item.width * state.client.width / state.psd.width).toFixed(2)
+        obj.ratio.height = (state.item.height / state.psd.height).toFixed(2)
+        obj.ratio.width = (state.item.width / state.psd.width).toFixed(2)
 
         return obj
     }

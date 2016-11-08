@@ -10,6 +10,8 @@ class InpuCard extends Component {
     handleChage (e) {                     
         if(!isNaN(parseFloat(e.target.value)) ) {
             this.props.valueChange(this.props.cardType,  e.target.className, parseFloat(e.target.value))
+        } else {
+            this.props.valueChange(this.props.cardType,  e.target.className, '' )
         }
     }
 

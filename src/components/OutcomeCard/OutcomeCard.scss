@@ -14,6 +14,13 @@
     text-align: center;
     span, code {
         display: inline-block;
-        width: 80px;
+        
+    }
+
+    span {
+        width: 60px;
+    }
+    code {
+        width: 160px;
     }
 }

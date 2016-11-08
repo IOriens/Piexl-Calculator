@@ -5,7 +5,7 @@ const autoprefixer = require('autoprefixer')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
-// Import the plugin:
+  // Import the plugin:
 const DashboardPlugin = require('webpack-dashboard/plugin');
 // const bablePolyfill = require("babel-polyfill")
 
@@ -30,20 +30,25 @@ var plugins = [
     // 'window.jQuery': 'jquery'
   }),
   new webpack.optimize.CommonsChunkPlugin(
-     /* chunkName= */ 'vendor', /* filename= */ '[hash:8].vendor.bundle.js'
+    /* chunkName= */
+    'vendor', /* filename= */ '[hash:8].vendor.bundle.js'
   ),
 
   new HtmlWebpackPlugin({
-       inject: true,
+    inject: true,
     template: path.join(__dirname, 'src/index.html'),
- 
+    favicon: path.join(__dirname, 'src/img/favicon.jpg'),
+    minify: { //压缩HTML文件    
+      removeComments: true, //移除HTML中的注释
+      collapseWhitespace: false //删除空白符与换行符
+    },
   }),
 
   // new OpenBrowserPlugin({ url: 'http://localhost:8080' })  
   new OpenBrowserPlugin({
     url: `http://${ip.address()}:8080`
   }),
-  
+
   new DashboardPlugin()
 ]
 
@@ -55,23 +60,23 @@ var loaders = [{
     presets: ['es2015', 'react']
   }
 }, {
-    test: /\.(ico|gif|png|jpg|jpeg|svg|webp)$/,
-    // loaders: ["url?limit=1024&name=img2/[name].[ext]"],
-    loaders: ['url?limit=1024&name=[path][hash:8].[name].[ext]'],
-    exclude: /node_modules/
-  }, {
-    test: /\.less$/,
-    exclude: /node_modules/,
-    loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!less'
-  }, {
-    test: /\.css$/,
-    // exclude: /node_modules/,
-    loader: 'style!css!postcss'
-  }, {
-    test: /\.scss$/,
-    exclude: /node_modules/,
-    loader: 'style!css?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
-  }]
+  test: /\.(ico|gif|png|jpg|jpeg|svg|webp)$/,
+  // loaders: ["url?limit=1024&name=img2/[name].[ext]"],
+  loaders: ['url?limit=1024&name=[path][hash:8].[name].[ext]'],
+  exclude: /node_modules/
+}, {
+  test: /\.less$/,
+  exclude: /node_modules/,
+  loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!less'
+}, {
+  test: /\.css$/,
+  // exclude: /node_modules/,
+  loader: 'style!css!postcss'
+}, {
+  test: /\.scss$/,
+  exclude: /node_modules/,
+  loader: 'style!css?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass'
+}]
 
 if (isProduction()) {
   plugins.push(
@@ -125,6 +130,7 @@ module.exports = {
     modulesDirectories: ['node_modules']
   },
   plugins: plugins,
+  devtool: "source-map",
   devServer: {
     contentBase: './dist',
     port: 8080,
@@ -136,7 +142,7 @@ module.exports = {
     'Config': JSON.stringify(isProduction() ? {
       serverURL: 'http://localhost:8091'
     } : {
-        serverURL: 'http://localhost:8091'
-      })
+      serverURL: 'http://localhost:8091'
+    })
   }
 }

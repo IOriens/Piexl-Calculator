@@ -116,7 +116,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/',
+    // publicPath: '/',
     filename: isProduction() ? '[chunkhash:8].[name].min.js' : '[name].js',
     chunkFilename: isProduction() ? 'js/[chunkhash:8].chunk.min.js' : '[chunkhash:8].chunk.js'
   },
